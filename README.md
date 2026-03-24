@@ -1,1 +1,2 @@
-ASIA 1.0  modelo de curriculo para proficionnais da aria de intligencia artificial
+ASIA 1.0  ARQUITETO DE SISTEMAS DE INTELIGENCIA ARTIFICIAL 
+modelo de curriculo para proficionnais da aria de intligencia artificial
