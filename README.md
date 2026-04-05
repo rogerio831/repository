@@ -1,6 +1,10 @@
 ASIA 1.0  ARQUITETO DE SISTEMAS DE INTELIGENCIA ARTIFICIAL 
 modelo de curriculo para proficionnais da aria de intligencia artificial
 
+um novo modelo de curriculo que se adequa a nova temdencia de tecnologia IA
+para quem se utilisa de inteligencia artificial e tambem para quem desenvove
+prompets generativos 
+ASIA 1.0 ARQUITETO DE SISTEMAS DE INTELIGENCIA ARTIFICIAL
 
 
 --------------------------------------------------------------------------------------------
