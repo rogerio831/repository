@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Pedido - Delivery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: grid;
+      gap: 15px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select {
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    fieldset {
+      border: 1px solid #ccc;
+      padding: 15px;
+    }
+    legend {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cadastro de Pedido - Delivery</h1>
+
+  <form id="pedidoForm">
+    
+    <!-- Cliente -->
+    <fieldset>
+      <legend>Dados do Cliente</legend>
+      <label for="clienteNome">Nome:</label>
+      <input type="text" id="clienteNome" name="clienteNome" required>
+      
+      <label for="clienteTelefone">Telefone:</label>
+      <input type="tel" id="clienteTelefone" name="clienteTelefone" required>
+    </fieldset>
+
+    <!-- Endereço de Retirada -->
+    <fieldset>
+      <legend>Endereço de Retirada</legend>
+      <label for="retiradaLogradouro">Rua:</label>
+      <input type="text" id="retiradaLogradouro" name="retiradaLogradouro" required>
+      
+      <label for="retiradaNumero">Número:</label>
+      <input type="text" id="retiradaNumero" name="retiradaNumero" required>
+      
+      <label for="retiradaCidade">Cidade:</label>
+      <input type="text" id="retiradaCidade" name="retiradaCidade" required>
+      
+      <label for="retiradaEstado">Estado:</label>
+      <input type="text" id="retiradaEstado" name="retiradaEstado" required>
+      
+      <label for="retiradaCEP">CEP:</label>
+      <input type="text" id="retiradaCEP" name="retiradaCEP" required>
+    </fieldset>
+
+    <!-- Endereço de Entrega -->
+    <fieldset>
+      <legend>Endereço de Entrega</legend>
+      <label for="entregaLogradouro">Rua:</label>
+      <input type="text" id="entregaLogradouro" name="entregaLogradouro" required>
+      
+      <label for="entregaNumero">Número:</label>
+      <input type="text" id="entregaNumero" name="entregaNumero" required>
+      
+      <label for="entregaCidade">Cidade:</label>
+      <input type="text" id="entregaCidade" name="entregaCidade" required>
+      
+      <label for="entregaEstado">Estado:</label>
+      <input type="text" id="entregaEstado" name="entregaEstado" required>
+      
+      <label for="entregaCEP">CEP:</label>
+      <input type="text" id="entregaCEP" name="entregaCEP" required>
+    </fieldset>
+
+    <!-- Dados da Carga -->
+    <fieldset>
+      <legend>Dados da Carga</legend>
+      <label for="peso">Peso (kg):</label>
+      <input type="number" step="0.1" id="peso" name="peso" required>
+      
+      <label for="volume">Volume (m³):</label>
+      <input type="number" step="0.01" id="volume" name="volume" required>
+      
+      <label for="tipoCarga">Tipo de Carga:</label>
+      <select id="tipoCarga" name="tipoCarga" required>
+        <option value="">Selecione</option>
+        <option value="caixa">Caixa</option>
+        <option value="envelope">Envelope</option>
+        <option value="outro">Outro</option>
+      </select>
+      
+      <label for="fragil">Frágil?</label>
+      <select id="fragil" name="fragil" required>
+        <option value="">Selecione</option>
+        <option value="true">Sim</option>
+        <option value="false">Não</option>
+      </select>
+    </fieldset>
+
+    <!-- Botão -->
+    <button type="submit">Enviar Pedido</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('pedidoForm');
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = {
+        cliente_nome: document.getElementById('clienteNome').value,
+        cliente_telefone: document.getElementById('clienteTelefone').value,
+        retirada: {
+          logradouro: document.getElementById('retiradaLogradouro').value,
+          numero: document.getElementById('retiradaNumero').value,
+          cidade: document.getElementById('retiradaCidade').value,
+          estado: document.getElementById('retiradaEstado').value,
+          cep: document.getElementById('retiradaCEP').value
+        },
+        entrega: {
+          logradouro: document.getElementById('entregaLogradouro').value,
+          numero: document.getElementById('entregaNumero').value,
+          cidade: document.getElementById('entregaCidade').value,
+          estado: document.getElementById('entregaEstado').value,
+          cep: document.getElementById('entregaCEP').value
+        },
+        carga: {
+          peso_kg: parseFloat(document.getElementById('peso').value),
+          volume_m3: parseFloat(document.getElementById('volume').value),
+          tipo: document.getElementById('tipoCarga').value,
+          fragil: document.getElementById('fragil').value === 'true'
+        }
+      };
+      
+      try {
+        const response = await fetch('http://localhost:8000/pedidos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        const data = await response.json();
+        alert('Pedido enviado com sucesso!');
+        console.log(data);
+        form.reset();
+      } catch (error) {
+        console.error(error);
+        alert('Erro ao enviar pedido.');
+      }
+    });
+  </script>
+</body>
+</html>
