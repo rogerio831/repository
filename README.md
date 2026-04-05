@@ -18,3 +18,17 @@ Agoritimo para evitar a requisição com ecesso de de peso , controlar estoque n
 o melhor veiculo ex :  veiculo 100% eletrico ou não e calcular taxa de entrega
 
 
+
+------------------------------------------------------------------------------------------------------
+
+
+Formulario de Etiquetas  MVP
+
+
+Este Algoritimo resolve a maneira de achar as seções por cores facilitando o fluxo de embalagems
+
+
+
+
+
+
