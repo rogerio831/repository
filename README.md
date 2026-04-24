@@ -41,7 +41,8 @@ A aplicação foi desenvolvida com foco em aprendizado de:
 
 Integração com APIs externas
 
-Como funciona
+Como funciona:
+
 O usuário digita um termo de busca
 O front-end envia a requisição para o backend
 O backend consulta a API do Kaggle
