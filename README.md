@@ -29,6 +29,22 @@ Este Algoritimo resolve a maneira de achar as seções por cores facilitando o f
 
 
 
+--------------------------------------------------------------------------------------------------------
+
+Sobre o projeto
+
+Este projeto simula um mecanismo de busca simples com interface minimalista, onde o usuário pode pesquisar datasets públicos disponíveis no Kaggle.
+
+A aplicação foi desenvolvida com foco em aprendizado de:
+
+Integração com APIs externas
+
+Licença
+
+Este projeto é apenas para fins educacionais.
+
+
+
 
 
 
