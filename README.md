@@ -31,6 +31,8 @@ Este Algoritimo resolve a maneira de achar as seções por cores facilitando o f
 
 --------------------------------------------------------------------------------------------------------
 
+Mini Kaggle.
+
 Sobre o projeto
 
 Este projeto simula um mecanismo de busca simples com interface minimalista, onde o usuário pode pesquisar datasets públicos disponíveis no Kaggle.
@@ -38,6 +40,13 @@ Este projeto simula um mecanismo de busca simples com interface minimalista, ond
 A aplicação foi desenvolvida com foco em aprendizado de:
 
 Integração com APIs externas
+
+Como funciona
+O usuário digita um termo de busca
+O front-end envia a requisição para o backend
+O backend consulta a API do Kaggle
+Os dados são retornados em formato JSON
+O front-end renderiza os resultados na tela
 
 Licença
 
